@@ -7,13 +7,17 @@ In this project, the goal was to write a software pipeline to detect vehicles in
 
 ## Training and Feature Extraction
 
-The training set consisted of a total of about 9,000 images each for car and non-car examples, and each image was 64 x 64 pixels with 3 color channels. Hog is a feature extraction method that consists of breaking the image up into cells and then measuring the strongest graident direction in each cell. By doing this information about the shape, indepent of the color can be captured. The cell size used for calculating hog was 8 x 8 cells where each cell was then 8 x 8 pixels. Further more the orientation of each gradient was grouped into one of 9 different resoultion bins. Finally each cell with its orientation bin was unraveled per color channel and stored into a 1-demensional feature vector. 
+The training set consisted of a total of about 9,000 images each for car and non-car examples, and each image was 64 x 64 pixels with 3 color channels. Hog is a feature extraction method that consists of breaking the image up into cells and then measuring the strongest graident direction in each cell. By doing this information about the shape, indepent of the color can be captured. The cell size used for calculating hog was 8 x 8 cells where each cell was then 8 x 8 pixels. Further more the orientation of each gradient was grouped into one of 9 different resoultion bins. Finally each cell with its orientation bin was unraveled per color channel and stored into a 1-demensional feature vector.
+
+![Hog Features](./car_hog.png)
 
 Complementing the hog feature vector was then the spatial color binning that just consisted of a down sampled input image of 32 x 32 pixels and unraveled into a 1-dementional vector as well. Then the color historgram used 32 different resoultion bins for each color channel. The color space used in this project however was not RGB but instead YCrCb which proved to have very useful results when extracting features. Since all of these feature vectors were 1-dimensional they could all simply be stacked ontop of each other for a final feature vector representation.
 
 [YCrCb example](https://www.google.com/search?q=YCbCr&rlz=1C1CHBD_enUS702US702&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiMgpmdnpPSAhXDLmMKHaleBOcQ_AUICCgB&biw=1536&bih=806#tbm=isch&q=ycbcr+vs+rgb&imgrc=OQhfRMzOkJo7GM:)
 
 With the following described feature vector values and using the large training dataset, the SVC was able to achieve 99% classification accuracy with a test set that was 10% of the orginal training data. This high accuracy was very important for the detection pipeline in order to minimize the number of false postive and negative detections.
+
+![Detections with Heatmaps](./car_boxes.png)
 
 ## Pipeline with test images
 
