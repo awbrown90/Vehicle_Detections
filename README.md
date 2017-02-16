@@ -7,12 +7,12 @@ In this project, the goal was to write a software pipeline to detect vehicles in
 
 ### Code layout
 
-train_data.py : Used to generate the pickled svc with all its feature extraction values.
-lesson_functions.py : Lesson functions discussed in the SDCND course.
-extra_functions.py : A single function to both search and classify, used hog sub-sampling for efficeny.
-main_image_gen.py : Used to take images in test_images folder and create bounding box images and heatmaps in output_images folder
-vehicle.py : Main class used for tracking detection position history
-main_video_gen.py : Used to render output video with bounding box detections from an input video
+1. train_data.py : Used to generate the pickled svc with all its feature extraction values.
+2. lesson_functions.py : Lesson functions discussed in the SDCND course.
+3. extra_functions.py : A single function to both search and classify, used hog sub-sampling for efficeny.
+4. main_image_gen.py : Used to take images in test_images folder and create bounding box images and heatmaps in output_images folder
+5. vehicle.py : Main class used for tracking detection position history
+6. main_video_gen.py : Used to render output video with bounding box detections from an input video
 
 ## Training and Feature Extraction
 
